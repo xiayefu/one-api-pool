@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: one-api
+    runtime: docker
+    plan: free
+    image: justsong/one-api:latest
+    envVars:
+      - key: SQL_DSN
+        value: one-api.db
+      - key: TZ
+        value: Asia/Shanghai
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    healthCheckPath: /
